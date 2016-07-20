@@ -11,8 +11,8 @@ import CssTask from '../CssTask';
  |
  */
 
-Elixir.extend('sass', function(src, output, options) {
-    new CssTask('sass', getPaths(src, output), options);
+Elixir.extend('sass', function(src, output, options, watch) {
+    new CssTask('sass', getPaths(src, output), options, watch);
 });
 
 

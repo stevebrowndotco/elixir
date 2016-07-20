@@ -1,5 +1,5 @@
 class CssTask extends Elixir.Task {
-    
+
     /**
      * Create a new CssTask instance.
      *
@@ -7,7 +7,7 @@ class CssTask extends Elixir.Task {
      * @param {GulpPaths}   paths
      * @param {object|null} options
      */
-    constructor(name, paths, options) {
+    constructor(name, paths, options, watch) {
         super(name, null, paths);
 
         this.options = options;
@@ -39,7 +39,7 @@ class CssTask extends Elixir.Task {
      * Register file watchers.
      */
     registerWatchers() {
-        this.watch(this.src.baseDir + Elixir.config.css[this.name].search)
+        this.watch(this.src.baseDir + Elixir.config.css[this.name].search, watch)
             .ignore(this.output.path);
     }
 
@@ -57,7 +57,7 @@ class CssTask extends Elixir.Task {
             this.options || Elixir.config.css[this.name].pluginOptions
         );
     }
-    
+
 
     /**
      * Apply CSS auto-prefixing.
